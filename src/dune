@@ -1,0 +1,16 @@
+
+(library
+ (name            sincos)
+ (public_name     sincos)
+ (modules sincos)
+ (foreign_stubs
+  (language c)
+  (names sincos)
+  (flags -I~/.opam/5.0.0/lib/ocaml/caml))
+  (c_library_flags (-lm)))
+
+(executables
+  (names test_sin_cos test_sincos)
+  (public_names test_sin_cos test_sincos)
+  (modules test_sin_cos test_sincos)
+  (libraries sincos unix))
