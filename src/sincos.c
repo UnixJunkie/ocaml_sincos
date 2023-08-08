@@ -38,9 +38,10 @@
 /*   CAMLreturn (res); */
 /* } */
 
-/* trying to store the result in an already allocated array */
+/* trying to store the result in a mutable floats struct */
 CAMLprim value caml_sincos_float(value f, value res) {
   CAMLparam2 (f, res);
+
   double x;
   double y;
 
