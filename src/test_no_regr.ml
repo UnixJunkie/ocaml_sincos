@@ -8,7 +8,9 @@ let main () =
   let n = 1000 in
   let alphas = A.init n (fun i -> ((float i) *. two_pi) /. (float n)) in
   let sin_cos = A.map (fun a -> sin a, cos a) alphas in
-  let sincos = A.map Sincos.sincos alphas in
+  let res = Sincos.{ sin = 0.0; cos = 0.0 } in  
+  let sincos =
+    A.map (fun a -> Sincos.sincos a res; (res.sin, res.cos)) alphas in
   (* check they compute the same thing *)
   for i = 0 to n - 1 do
     let sin, cos = sin_cos.(i) in
