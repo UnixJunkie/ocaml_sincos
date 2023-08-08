@@ -10,7 +10,7 @@
   (c_library_flags (-lm)))
 
 (executables
-  (names test_sin_cos test_sincos)
-  (public_names test_sin_cos test_sincos)
-  (modules test_sin_cos test_sincos)
+  (names test_sin_cos test_sincos test_no_regr)
+  (public_names test_sin_cos test_sincos test_no_regr)
+  (modules test_sin_cos test_sincos test_no_regr)
   (libraries sincos unix))
