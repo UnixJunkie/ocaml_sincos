@@ -6,7 +6,7 @@
 #include "caml/alloc.h"
 #include "caml/memory.h"
 
-CAMLprim value caml_sincos_float(double f, value res) {
-  sincos(f, (double*)res, 1+(double*)res);
+CAMLprim value caml_sincos_float(value f, value res) {
+  sincos(Double_val(f), (double*)res, 1+(double*)res);
   return Val_unit;
 }
