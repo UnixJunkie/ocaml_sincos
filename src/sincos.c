@@ -39,16 +39,18 @@
 /* } */
 
 /* trying to store the result in a mutable floats struct */
-CAMLprim value caml_sincos_float(value f, value res) {
-  CAMLparam2 (f, res);
-
+CAMLprim value caml_sincos_float(double f, value res) {
   double x;
   double y;
 
-  sincos(Double_val(f), &x, &y);
+  sincos(f, &x, &y);
 
   Store_double_flat_field(res, 0, x);
   Store_double_flat_field(res, 1, y);
 
-  CAMLreturn (Val_unit);
+  return (Val_unit);
+}
+
+CAMLprim value caml_sincos_float_boxed(value f, value res) {
+  return caml_sincos_float(Double_val(f), res);
 }
